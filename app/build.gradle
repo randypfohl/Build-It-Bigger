@@ -33,23 +33,23 @@ android {
 
     productFlavors {
         paid {
-            applicationId 'com.udacity.gradle.builditbigger.paid'
+            applicationId 'com.udacity.gradle.builditbigger'
             dimension "price"
         }
         free {
-            applicationId 'com.udacity.gradle.builditbigger.free'
+            applicationId 'com.udacity.gradle.builditbigger'
             dimension "price"
         }
     }
 
-//    sourceSets {
-//        free {
-//            manifest.srcFile 'src/free/AndroidManifest.xml'
-//        }
-//        paid {
-//            manifest.srcFile 'src/paid/AndroidManifest.xml'
-//        }
-//    }
+    sourceSets {
+        free {
+            manifest.srcFile 'src/free/AndroidManifest.xml'
+        }
+        paid {
+            manifest.srcFile 'src/paid/AndroidManifest.xml'
+        }
+    }
 }
 
 dependencies {
@@ -70,5 +70,12 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testImplementation 'junit:junit:4.12'
-    //freeImplementation 'com.google.android.gms:play-services-ads:15.0.1'
+    freeImplementation 'com.google.android.gms:play-services-ads:15.0.1'
+}
+
+configurations {
+    all {
+        exclude module: 'httpclient'
+        exclude module: 'commons-logging'
+    }
 }
