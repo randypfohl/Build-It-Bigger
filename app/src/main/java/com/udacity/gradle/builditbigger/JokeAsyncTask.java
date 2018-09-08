@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class JokeAsyncTask extends AsyncTask<IJokeCallback, String, String> {
     private static MyApi myApiService = null;
-    private static final String ROOT_ADDRESS = "http://192.168.1.244:8080/_ah/api/";
+    private static final String ROOT_ADDRESS = "http://10.131.9.207:8080/_ah/api/";
     private IJokeCallback callback;
 
     @Override

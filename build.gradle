@@ -20,25 +20,3 @@ allprojects {
         google()
     }
 }
-
-task startAppEngine (dependsOn: ":backend:appengineStart") {
-    doLast {
-        println "App Engine started"
-    }
-
-}
-
-task runAndroidTest (dependsOn: ":app:connectedAndroidTest") {
-    doLast {
-        println "Test reports can be found at project-folder/app/build/reports directory"
-    }
-}
-
-task stopAppEngine (dependsOn: ":backend:appengineStop") {
-    doLast {
-        println "App Engine stopped"
-    }
-}
-
-runAndroidTest.mustRunAfter "startAppEngine"
-runAndroidTest.finalizedBy "stopAppEngine"
